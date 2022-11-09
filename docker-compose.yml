@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  node:
+    build: ./
+    volumes:
+      - ./prisma/database.db:/srv/app/prisma/database.db:delegated
+    ports:
+      - "${PORT}:3000"
+    restart: unless-stopped
