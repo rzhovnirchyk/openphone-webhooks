@@ -6,7 +6,7 @@ services:
     volumes:
       - ./prisma/database.db:/srv/app/prisma/database.db:delegated
     ports:
-      - "${VIRTUAL_PORT}:3000"
+      - "${VIRTUAL_PORT}:${PORT}"
     environment:
       VIRTUAL_HOST: "${VIRTUAL_HOST}"
       LETSENCRYPT_HOST: "${LETSENCRYPT_HOST}"
