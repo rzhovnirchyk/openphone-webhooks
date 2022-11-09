@@ -6,5 +6,12 @@ services:
     volumes:
       - ./prisma/database.db:/srv/app/prisma/database.db:delegated
     ports:
-      - "${PORT}:3000"
+      - "${VIRTUAL_PORT}:3000"
+    networks:
+      - nginx-proxy
     restart: unless-stopped
+
+networks:
+  nginx-proxy:
+    external:
+      name: nginx-proxy
