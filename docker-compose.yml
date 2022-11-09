@@ -7,6 +7,10 @@ services:
       - ./prisma/database.db:/srv/app/prisma/database.db:delegated
     ports:
       - "${VIRTUAL_PORT}:3000"
+    environment:
+      VIRTUAL_HOST: "${VIRTUAL_HOST}"
+      LETSENCRYPT_HOST: "${LETSENCRYPT_HOST}"
+      VIRTUAL_PORT: "${VIRTUAL_PORT}"
     networks:
       - nginx-proxy
     restart: unless-stopped
